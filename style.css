@@ -202,3 +202,28 @@ button:disabled {
     transform: translateY(0);
   }
 }
+/* === Fix: ensure typewriter reveals full headline === */
+.about-title.typewriter {
+  display: inline-block;
+  border-right: 3px solid var(--accent);
+  /* longer duration + more steps so long headlines fully type out */
+  animation: typing 5s steps(140, end) forwards, blink .75s step-end infinite;
+  width: 0;
+  max-width: 100%;
+}
+
+/* re-declare keyframes (safe override if already present) */
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Ensure fade-in class exists (JS will add this) */
+.about-content p.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .6s ease, transform .6s ease;
+}
