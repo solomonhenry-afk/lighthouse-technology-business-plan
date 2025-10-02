@@ -4,187 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>LIGHT HOUSE TECHNOLOGY — Business Plan</title>
-  <style>
-    :root{
-      --bg:#000;
-      --panel:#071025;
-      --accent:#0d47a1; /* deep blue */
-      --muted:#90caf9;
-      --text:#eaf4ff;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,#000 0%, #020617 60%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      min-height:100vh;
-      flex-direction:column;
-      align-items:center;
-    }
 
-    header{
-      width:100%;
-      background:linear-gradient(90deg,var(--accent), #1565c0);
-      padding:18px 24px;
-      display:flex;
-      gap:20px;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 4px 18px rgba(13,71,161,0.12);
-      border-bottom:1px solid rgba(255,255,255,0.03);
-    }
-    header h1{
-      margin:0;
-      font-size:1.25rem;
-      letter-spacing:0.4px;
-    }
-    header p{ margin:0; color:var(--muted); font-size:0.95rem }
-
-    .about{
-      max-width:980px;
-      margin:20px;
-      padding:18px;
-      background:rgba(255,255,255,0.02);
-      border:1px solid rgba(255,255,255,0.02);
-      border-radius:8px;
-      color:#dff1ff;
-      line-height:1.5;
-    }
-
-    .viewer{
-      width:100%;
-      max-width:1100px;
-      margin:18px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-    }
-
-    .slide-wrap{
-      width:100%;
-      background:var(--panel);
-      border:2px solid rgba(13,71,161,0.12);
-      border-radius:8px;
-      padding:12px;
-      min-height:360px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-
-    .slide-wrap img{ max-width:100%; height:auto; border-radius:6px; display:block; }
-    .slide-wrap embed, .slide-wrap object { width:100%; height:640px; border-radius:6px; }
-
-    .controls{ display:flex; align-items:center; gap:12px; margin-top:6px }
-    button{
-      background:var(--accent);
-      color:white;
-      border:0;
-      padding:10px 14px;
-      border-radius:6px;
-      cursor:pointer;
-      font-weight:600;
-      box-shadow:0 6px 18px rgba(13,71,161,0.12);
-    }
-    button:disabled{ opacity:0.5; cursor:not-allowed }
-    .counter{ color:var(--muted) }
-    footer{ margin:28px 0 40px; color: #8fbff6; font-size:0.9rem }
-
-    @media (max-width:680px){
-      .slide-wrap embed, .slide-wrap object { height:420px }
-    }
-  </style>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>LIGHT HOUSE TECHNOLOGY</h1>
-    <p>"Illuminating Your Digital Path" — Business Plan</p>
+    <p>"Illuminating Your Digital Path" — Business Goals</p>
   </header>
 
-  <section class="about" aria-labelledby="aboutTitle">
-    <strong id="aboutTitle">About — Bassey Solomon Henry</strong>
-    <p>
-      I’m <strong>Bassey Solomon Henry</strong>, a CyberSecurity Engineer specializing in cloud security, DevSecOps, and GPU workload protection.
-      I combine red team adversary simulation & blue team defensive simulation with enterprise-grade defensive engineering — giving me a dual perspective that anticipates threats while designing resilient systems.
-    </p>
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <h2 class="about-title typewriter">
+        Transforming Cybersecurity Threats into Measurable Business Resilience
+      </h2>
+
+      <h3 class="about-subtitle">
+        Bassey Solomon Henry — Cybersecurity Analyst & Technology Risk Specialist
+      </h3>
+
+      <div class="about-content">
+        <p>
+          I am <strong>Bassey Solomon Henry</strong>, a CyberSecurity Engineer Specializing in Cloud Security, DevSecOps, and GPU Workload Protection. With Over 4+ Years of Enterprise Security Experience, I’ve Reduced Organizational Attack Surfaces by <strong>65%</strong>, Improved Detection Speed by <strong>40%</strong>, and SafeGuarded 20+ Mission-Critical Systems without a Single Breach.
+        </p>
+
+        <p>
+          My Expertise Spans both <strong>Red Team Adversary Simulation</strong> and <strong>Blue Team Defensive Engineering</strong>, giving me a Dual Perspective to Anticipate, Simulate, and Neutralize Threats before they Impact Business. Beyond Technical Mastery, I Align CyberSecurity with <em>Governance and Compliance FrameWorks</em> like GDPR, HIPAA, PCI-DSS, and Nigeria’s FinTech Regulations — Ensuring not just Defense, but Audit-Ready Resilience.
+        </p>
+
+        <p>
+          From Building Adversarial Emulation Labs to Automating SOC Workflows and Delivering Compliance RoadMaps, My Mission is Simple: <em>to Bridge the Gap between Technical Defense and Business Trust</em>.
+        </p>
+      </div>
+    </div>
   </section>
-
-  <main class="viewer">
-    <div class="slide-wrap" id="slideWrap">
-      <!-- JS will populate with <img> or <embed> -->
-      <div id="loading" style="color:var(--muted)">Loading slide …</div>
-    </div>
-
-    <div class="controls" role="toolbar" aria-label="Slide controls">
-      <button id="prevBtn" onclick="prevSlide()" aria-label="Previous slide">⬅ Prev</button>
-      <div class="counter" id="counter">Slide 1 of 19</div>
-      <button id="nextBtn" onclick="nextSlide()" aria-label="Next slide">Next ➡</button>
-    </div>
-  </main>
 
   <footer>
     © 2025 LIGHT HOUSE TECHNOLOGY — Built by Bassey Solomon Henry
   </footer>
 
+  <!-- JS for typewriter + paragraph fade-in -->
   <script>
-    const totalSlides = 19; // CHANGE if you have different number
-    let currentSlide = 1;
-    const exts = ['png','jpg','jpeg','webp','pdf'];
-
-    async function exists(url){
-      try {
-        const res = await fetch(url, {method:'HEAD'});
-        return res && res.ok;
-      } catch(e){
-        return false;
-      }
-    }
-
-    async function findSlideUrl(n){
-      for(const ext of exts){
-        const url = `slides/slide${n}.${ext}`;
-        if (await exists(url)) return url;
-      }
-      return null;
-    }
-
-    async function showSlide(n){
-      const wrap = document.getElementById('slideWrap');
-      wrap.innerHTML = `<div id="loading" style="color:var(--muted)">Loading slide ${n} …</div>`;
-      const url = await findSlideUrl(n);
-      const counter = document.getElementById('counter');
-      counter.innerText = `Slide ${n} of ${totalSlides}`;
-      document.getElementById('prevBtn').disabled = (n<=1);
-      document.getElementById('nextBtn').disabled = (n>=totalSlides);
-      if (!url){
-        wrap.innerHTML = `<div style="color:#ff8999">Slide ${n} not found. Make sure slide files exist and are named slide${n}.png/jpg/pdf</div>`;
-        return;
-      }
-      if (url.endsWith('.pdf')){
-        wrap.innerHTML = `<embed src="${url}" type="application/pdf">`;
-      } else {
-        wrap.innerHTML = `<img src="${url}" alt="Slide ${n}">`;
-      }
-    }
-
-    function prevSlide(){ if (currentSlide>1){ currentSlide--; showSlide(currentSlide); }}
-    function nextSlide(){ if (currentSlide<totalSlides){ currentSlide++; showSlide(currentSlide); }}
-
-    // keyboard navigation
-    document.addEventListener('keydown', (e)=>{
-      if (e.key === 'ArrowLeft') prevSlide();
-      if (e.key === 'ArrowRight') nextSlide();
-      if (e.key === 'Home'){ currentSlide=1; showSlide(currentSlide); }
-      if (e.key === 'End'){ currentSlide=totalSlides; showSlide(currentSlide); }
+    const title = document.querySelector(".about-title.typewriter");
+    title.addEventListener("animationend", () => {
+      const paras = document.querySelectorAll(".about-content p");
+      paras.forEach((p, i) => {
+        setTimeout(() => {
+          p.classList.add("fade-in");
+        }, i * 600);
+      });
     });
-
-    // init
-    showSlide(currentSlide);
   </script>
 </body>
 </html>
