@@ -31,10 +31,6 @@
   white-space: nowrap;
 }
 
-/* apply typing to the title */
-.about-title.typewriter {
-  display: inline-block;
-  border-right: 3px solid var(--accent);
   /* typing animation then keep final state (forwards) */
   animation: typing 3.8s steps(60, end) forwards, blink .75s step-end infinite;
   width: 0;
@@ -227,14 +223,22 @@ button:disabled {
   transform: translateY(0);
   transition: opacity .6s ease, transform .6s ease;
 }
-/* If title still truncated: increase steps/duration */
+/* === Final clean fix: ensure typewriter reveals full headline === */
 .about-title.typewriter {
-  animation: typing 6s steps(220, end) forwards, blink .75s step-end infinite;
-}
-/* Final override: force full headline typing */
-.about-title.typewriter {
+  display: inline-block;
+  border-right: 3px solid var(--accent);
   animation: typing 7s steps(240, end) forwards, blink .75s step-end infinite;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 100%;
+}
+
+/* typing keyframes */
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
 }
 
