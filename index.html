@@ -40,6 +40,54 @@
       </div>
     </div>
   </section>
+<!-- ==========================
+     SLIDE VIEWER SECTION
+     ========================== -->
+<section class="viewer">
+  <div class="slide-wrap">
+    <img id="slide" src="slides/slide1.png" alt="Business Plan Slide 1">
+  </div>
+
+  <div class="controls">
+    <button id="prev" disabled>⟨ Prev</button>
+    <span class="counter" id="counter">1 / 19</span>
+    <button id="next">Next ⟩</button>
+  </div>
+</section>
+
+<!-- SLIDE SCRIPT -->
+<script>
+  const totalSlides = 19;
+  let currentSlide = 1;
+
+  const slideImg = document.getElementById("slide");
+  const counter = document.getElementById("counter");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+
+  function updateSlide() {
+    slideImg.src = `slides/slide${currentSlide}.png`;
+    counter.textContent = `${currentSlide} / ${totalSlides}`;
+    prevBtn.disabled = currentSlide === 1;
+    nextBtn.disabled = currentSlide === totalSlides;
+  }
+
+  prevBtn.addEventListener("click", () => {
+    if (currentSlide > 1) {
+      currentSlide--;
+      updateSlide();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentSlide < totalSlides) {
+      currentSlide++;
+      updateSlide();
+    }
+  });
+
+  updateSlide();
+</script>
 
   <footer>
     © 2025 LIGHT HOUSE TECHNOLOGY — Built by Bassey Solomon Henry
