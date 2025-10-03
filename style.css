@@ -227,3 +227,14 @@ button:disabled {
   transform: translateY(0);
   transition: opacity .6s ease, transform .6s ease;
 }
+/* If title still truncated: increase steps/duration */
+.about-title.typewriter {
+  animation: typing 6s steps(220, end) forwards, blink .75s step-end infinite;
+}
+/* Final override: force full headline typing */
+.about-title.typewriter {
+  animation: typing 7s steps(240, end) forwards, blink .75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
