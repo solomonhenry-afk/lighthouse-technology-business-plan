@@ -168,7 +168,7 @@ button:disabled {
 .about-title.typewriter {
   display: inline-block;
   border-right: 3px solid var(--accent);
-  animation: typing 7s steps(80, end) forwards, blink .75s step-end infinite;
+  animation: typing 8s steps(100, end) forwards, blink .75s step-end infinite;
   white-space: nowrap;
   overflow: hidden;
   max-width: 100%;
