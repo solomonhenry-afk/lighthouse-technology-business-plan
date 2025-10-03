@@ -21,30 +21,6 @@
   text-align: center;
 }
 
-/* Headline + Typewriter */
-.about-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: var(--accent);
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-  /* typing animation then keep final state (forwards) */
-  animation: typing 3.8s steps(60, end) forwards, blink .75s step-end infinite;
-  width: 0;
-}
-
-/* typing keyframes */
-@keyframes typing {
-  from { width: 0; }
-  to   { width: 100%; }
-}
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
 .about-subtitle {
   font-size: 1.15rem;
   font-weight: 600;
@@ -84,6 +60,7 @@
   .about-subtitle { font-size: 1rem; }
   .about-content p { font-size: 1.0rem; }
 }
+
 /* ===============================
    HEADER + FOOTER
    =============================== */
@@ -186,8 +163,27 @@ button:disabled {
 }
 
 /* ===============================
-   FADE-IN KEYFRAMES
+   TYPEWRITER HEADLINE
    =============================== */
+.about-title.typewriter {
+  display: inline-block;
+  border-right: 3px solid var(--accent);
+  animation: typing 7s steps(240, end) forwards, blink .75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* ===============================
+   KEYFRAMES
+   =============================== */
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -198,47 +194,3 @@ button:disabled {
     transform: translateY(0);
   }
 }
-/* === Fix: ensure typewriter reveals full headline === */
-.about-title.typewriter {
-  display: inline-block;
-  border-right: 3px solid var(--accent);
-  /* longer duration + more steps so long headlines fully type out */
-  animation: typing 5s steps(140, end) forwards, blink .75s step-end infinite;
-  width: 0;
-  max-width: 100%;
-}
-
-/* re-declare keyframes (safe override if already present) */
-@keyframes typing {
-  from { width: 0; }
-  to   { width: 100%; }
-}
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
-/* Ensure fade-in class exists (JS will add this) */
-.about-content p.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity .6s ease, transform .6s ease;
-}
-/* === Final clean fix: ensure typewriter reveals full headline === */
-.about-title.typewriter {
-  display: inline-block;
-  border-right: 3px solid var(--accent);
-  animation: typing 7s steps(240, end) forwards, blink .75s step-end infinite;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-/* typing keyframes */
-@keyframes typing {
-  from { width: 0; }
-  to   { width: 100%; }
-}
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
